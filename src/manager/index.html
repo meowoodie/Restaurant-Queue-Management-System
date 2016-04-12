@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    	<!--自适应界面,如果出现,在某些设备出现界面偏小的话,检查一下有没有加入这句 -->
+    	<meta http-equiv="Content-type" name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
+	<link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css" />	
+		
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile-1.0.1.min.js"></script>
+	<script src="js/cordova-1.5.0.js"></script>
+	<phonegap></phonegap>
+	
+</head>
+<body>
+	<!---------------------------------------- Page 1 : Login ------------------------------------------->
+	<div data-role="page" id="home">
+		<!-- header -->
+		<div data-role="header" data-position="fixed" class="ui-header ui-bar-a ui-header-fixed fade ui-fixed-inline" role="banner" style="top: 0px;">
+			<a href="#reg" data-role="button" data-icon="arrow-r" data-iconpos="left" data-transition="slide" data-direction="reverse">注册</a>
+			<h1>管理员登录</h1>
+		</div>
+		<!-- content -->
+		<div data-role="content">
+			<label for="manager_name">用户名：</label>
+			<input type="text" id="manager_name" placeholder="请输入用户名" />
+			<label for="password">密码：</label>
+			<input type="password" id="password"  placeholder="请输入密码 " />
+			<p></p>
+			<input type="checkbox" id="checkbox-0" data-role="none" />
+			<label for="checkbox-0">记住密码</label>
+			<input type="checkbox" id="checkbox-2" data-role="none" />
+			<label for="checkbox-2">自动登录</label>
+		</div>
+		<!-- footer -->
+		<div data-role="footer" data-position="fixed" >
+			<div data-role="navbar">
+				<ul>
+					<li><a id="home_login" data-role="button" data-icon="arrow-r" data-transition="slide">登录</a></li>
+				</ul>
+			</div>
+		</div>		
+	</div>
+	<!--------------------------------------- Page 2 : manager -------------------------------------------->
+    <div data-role="page" id="manager">
+		<!-- header -->
+ 		<div data-role="header" data-position="fixed" class="ui-header ui-bar-a ui-header-fixed fade ui-fixed-inline" role="banner" style="top: 0px;">
+			<h1>管理</h1>
+			<!-- Navbar of queue type -->
+			<div data-role="navbar">
+			    <ul>
+					<li><a id="msg_one2two" href="#" data-icon="info" class="ui-btn-active">一至两人桌</a></li>
+					<li><a id="msg_three2four" href="#" data-icon="info">三至四人桌</a></li>
+					<li><a id="msg_upfive" href="#" data-icon="info">五人以上桌</a></li>
+		        </ul>
+    		</div>
+		</div>
+		<!-- content -->
+		<div id="msg_content" data-role="content">
+			<!-- List of Queue -->
+			<!-- <div data-role="collapsible-set">
+				<div data-role="collapsible" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
+					<h3>5034&nbsp;&nbsp;&nbsp;祝士祥</h3>
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#" data-icon="check" data-theme="e">应约</a></li>
+							<li><a href="#" data-icon="forward" data-theme="e">过号</a></li>
+							<li><a href="#" data-icon="alert" data-theme="e">叫号</a></li>
+							<li><a href="#" data-icon="search" data-theme="b">查看</a></li>
+						</ul>
+					</div>
+				</div>
+			</div> -->
+		</div>
+		<!-- footer -->
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#" data-icon="home" class="ui-btn-active ui-state-persist">管理</a></li>
+					<li><a href="#man_parti" data-icon="plus" data-transition="fade">排队</a></li>
+					<li><a href="#barcode" data-icon="star" data-transition="fade">二维码</a></li>
+					<li><a href="#setting" data-icon="gear" data-transition="fade">设置</a></li>
+				</ul>
+			</div>		
+		</div>
+	</div>
+	<!--------------------------------------- Page 2 : barcode -------------------------------------------->
+    <div data-role="page" id="barcode">
+		<!-- header -->
+ 		<div data-role="header" data-position="fixed" class="ui-header ui-bar-a ui-header-fixed fade ui-fixed-inline" role="banner" style="top: 0px;">
+			<h1>二维码</h1>
+		</div>
+		<!-- content -->
+		<div data-role="content">
+			<br><br><br><br><br>
+			<a id="barcode_current" data-role="button">显示当前二维码</a>
+			<a id="barcode_new"     data-role="button" data-theme="b">生成新的二维码</a>
+			<center><span>警告&nbsp;:&nbsp;生成新的二维码后旧的二维码将无效！</span></center>
+			<br><br><br><br><br>
+		</div>
+		<!-- footer -->
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#manager" data-icon="home" data-transition="fade">管理</a></li>
+					<li><a href="#man_parti" data-icon="plus" data-transition="fade">排队</a></li>
+					<li><a href="#" data-icon="star" class="ui-btn-active ui-state-persist">二维码</a></li>
+					<li><a href="#setting" data-icon="gear" data-transition="fade">设置</a></li>
+				</ul>
+			</div>		
+		</div>
+	</div>
+	<!------------------------------------ Page 3 : Setting -------------------------------------------->
+	<div data-role="page" id="setting">
+		<!-- header -->
+ 		<div data-role="header" data-position="fixed" class="ui-header ui-bar-a ui-header-fixed fade ui-fixed-inline" role="banner" style="top: 0px;">
+			<h1>设置</h1>
+		</div>
+		<!-- content -->
+		<div data-role="content">
+			<span>一至两人桌空桌数量&nbsp;:&nbsp;</span><span id="l_count_one2two">无数据</span>
+			<a id="one2two_plus1" data-role="button" data-icon="plus" data-iconpos="notext" data-inline="true">空桌数加1</a>
+			<a id="one2two_minus1" data-role="button" data-icon="minus" data-iconpos="notext" data-inline="true">空桌数减1</a><br>
+			<span>两至三人桌空桌数量&nbsp;:&nbsp;</span><span id="l_count_three2four">无数据</span>
+			<a id="three2four_plus1" data-role="button" data-icon="plus" data-iconpos="notext" data-inline="true">空桌数加1</a>
+			<a id="three2four_minus1" data-role="button" data-icon="minus" data-iconpos="notext" data-inline="true">空桌数减1</a><br>
+			<span>五人以上桌空桌数量&nbsp;:&nbsp;</span><span id="l_count_upfive">无数据</span>
+			<a id="upfive_plus1" data-role="button" data-icon="plus" data-iconpos="notext" data-inline="true">空桌数加1</a>
+			<a id="upfive_minus1" data-role="button" data-icon="minus" data-iconpos="notext" data-inline="true">空桌数减1</a><br>
+			<hr>
+			<center><span>一至两人桌总数量</span></center>
+			<input type="text" id="t_count_one2two"  placeholder="请输入餐桌数量" />
+			<center><span>两至三人桌总数量</span></center>
+			<input type="text" id="t_count_three2four"  placeholder="请输入餐桌数量" />
+			<center><span>五人以上桌总数量</span></center>
+			<input type="text" id="t_count_upfive"  placeholder="请输入餐桌数量" />
+			<a id="commit_total_count" data-role="button">提交新的餐桌数量</a>
+			<center><span>警告&nbsp;:&nbsp;修改成功后所有餐桌设置为空桌！</span></center>
+		</div>
+		<!-- footer -->
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#manager" data-icon="home" data-transition="fade">管理</a></li>
+					<li><a href="#man_parti" data-icon="plus" data-transition="fade">排队</a></li>
+					<li><a href="#barcode" data-icon="star" data-transition="fade">二维码</a></li>
+					<li><a href="#" data-icon="gear" class="ui-btn-active ui-state-persist">设置</a></li>
+				</ul>
+			</div>		
+		</div>
+	</div>
+	<!---------------------------------------- Page 4 : Register ------------------------------------------->
+	<div data-role="page" id="reg">
+		<!-- header -->
+		<div data-role="header" data-position="fixed" class="ui-header ui-bar-a ui-header-fixed fade ui-fixed-inline" role="banner" style="top: 0px;">
+			<a href="#home" data-role="button" data-icon="arrow-l" data-iconpos="left" data-transition="slide">返回</a>
+			<h1>管理账号注册</h1>
+		</div>
+		<!-- content -->
+		<div data-role="content">
+			<label for="r_manager_name">餐厅名称：</label>
+			<input type="text" id="r_manager_name"  placeholder="请输入餐厅名称" />
+			<label for="r_password">密码：</label>
+			<input type="password" id="r_password"  placeholder="请输入密码 " />
+			<label for="r_introduction">餐厅简介：</label>
+			<input type="text" id="r_introduction"  placeholder="请输入餐厅的相关文字介绍 " />
+			<p></p>
+		</div>
+		<!-- footer -->
+		<div data-role="footer" data-position="fixed" >
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="reg_register_b" data-role="button" data-icon="check" data-transition="slide">注册</a></li>
+				</ul>
+			</div>
+		</div>		
+	</div>
+	<!--------------------------------------- Page 5 : manual parti -------------------------------------------->
+    <div data-role="page" id="man_parti">
+		<!-- header -->
+ 		<div data-role="header" data-position="fixed" class="ui-header ui-bar-a ui-header-fixed fade ui-fixed-inline" role="banner" style="top: 0px;">
+			<h1>人工生成排队号</h1>
+		</div>
+		<!-- content -->
+		<div data-role="content">
+			<h3>选择就餐人数</h3>
+			<select id="man_type" name="num" data-native-menu="false">
+				<option value="1">一到两人</option>
+				<option value="2">三到四人</option>
+				<option value="3">五人以上</option>
+			</select>
+			<a id="man_affirm" data-role="button">确认排队</a>		
+		</div>
+		<!-- footer -->
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#manager" data-icon="home" data-transition="fade">管理</a></li>
+					<li><a href="#" data-icon="plus" class="ui-btn-active ui-state-persist">排队</a></li>
+					<li><a href="#barcode" data-icon="star"  data-transition="fade">二维码</a></li>
+					<li><a href="#setting" data-icon="gear" data-transition="fade">设置</a></li>
+				</ul>
+			</div>		
+		</div>
+	</div>
+</body>
+<script src="js/manager_main.js"></script>
+</html>
